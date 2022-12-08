@@ -20,7 +20,7 @@ public class Database {
         try {
             HikariConfig hikariConfig = new HikariConfig();
             hikariConfig.setDriverClassName("org.mariadb.jdbc.Driver");
-            hikariConfig.setJdbcUrl("jdbc:mysql://foxes4life.net:3306/fluxifyed");
+            hikariConfig.setJdbcUrl(config.get("url").getAsString());
             hikariConfig.setUsername(config.get("user").getAsString());
             hikariConfig.setPassword(config.get("pass").getAsString());
             dataSource = new HikariDataSource(hikariConfig);
