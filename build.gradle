@@ -11,6 +11,7 @@ targetCompatibility = '17'
 mainClassName = 'flustix.fluxified.Main'
 
 repositories {
+    maven { url 'https://maven.comroid.org' }
     mavenLocal()
     jcenter()
 }
@@ -23,6 +24,10 @@ dependencies {
     implementation 'org.reflections:reflections:0.10.2'
     implementation 'net.objecthunter:exp4j:0.4.8'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+
+    if (findProject(':guardian:varbind') != null)
+        implementation project(':guardian:varbind')
+    else implementation 'org.comroid:varbind:0.+'
 }
 
 tasks.named('test') {
